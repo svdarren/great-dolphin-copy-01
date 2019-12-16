@@ -15,4 +15,4 @@ actions:
     url: '#one'
 img:
   path: /images/screen.jpg
-  phone_border: false
+  phone_border: true
