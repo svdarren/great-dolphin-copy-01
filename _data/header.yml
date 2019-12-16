@@ -1,15 +1,8 @@
 title_url: '#'
-subtitle: |-
-  Nibh sed aliquam, cursus arcu aliquet  
-  natoque rhoncus ut non in Aliquet
+subtitle: We host events to help people make new friends.
 actions:
-  - icon: fa-download
-    is_primary: true
-    is_scrolly: false
-    label: Download
-    url: /elements
   - icon: fa-chevron-down
-    is_primary: false
+    is_primary: true
     is_scrolly: true
     label: Learn More
     url: '#one'
