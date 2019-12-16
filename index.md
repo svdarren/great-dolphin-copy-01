@@ -27,7 +27,7 @@ sections:
         title: Lorem nullam tempus
       - icon: fa-desktop
         title: Adipiscing amet sapien
-    section_id: two
+    section_id: events
     spotlights:
       - image: /images/dfa7d2b87820a50796e3e0b7849d14ff_f145.png
         text: >-
@@ -45,7 +45,7 @@ sections:
       - image: /images/179b2849f54c3dc1ddb8a4bed2ee2526_f146.jpg
         text: Break the Bubble @ Utepils Brewing Co
         title: Break the Bubble @ Utepils Brewing Co
-    title: Spotlights Section
+    title: Events
     type: spotlights
   - actions:
       - icon: fa-download
