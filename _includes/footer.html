@@ -1,0 +1,23 @@
+<!-- Footer -->
+<footer id="footer">
+    {% assign social_icons_is_not_empty = site.data.footer.social_icons | is_not_empty %}
+    {% if social_icons_is_not_empty %}
+        <ul class="icons">
+            {% for item in site.data.footer.social_icons %}
+                <li><a href="{{ item.url }}" class="icon {{ item.icon }}"><span class="label">{{ item.title }}</span></a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% assign copyright_is_not_empty = site.data.footer.copyright | is_not_empty %}
+    {% if copyright_is_not_empty %}
+        <p class="copyright">
+            {{ site.data.footer.copyright }}
+            &nbsp;
+            {% for link in site.data.footer.links %}
+            <a href="{{ link.url }}" {% assign new_window_is_not_empty = link.new_window | is_not_empty %}
+               {% if new_window_is_not_empty %}target="_blank" rel="noopener"
+               {% endif %}>{{ link.text }}</a>.
+            {% endfor %}
+        </p>
+    {% endif %}
+</footer>

@@ -1,0 +1,402 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: images
+public_folder: /images
+collections:
+  - name: config
+    label: Config
+    files:
+      - name: config
+        label: Config
+        file: _config.yml
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Site title
+          - widget: hidden
+            name: baseurl
+            label: Base URL
+            required: false
+            hint: Serve the website from the given base URL
+          - widget: hidden
+            name: permalink
+            label: Permalink
+            required: false
+            default: '/posts/:slug:output_ext'
+            hint: 'The output path for your pages, posts, or collections.'
+          - widget: select
+            name: palette
+            label: Color Palette
+            required: true
+            hint: The color palette used in the theme
+            options:
+              - blue
+              - magenta
+              - purple
+          - widget: hidden
+            name: palettes
+            label: Palettes
+            required: false
+          - widget: hidden
+            name: sass
+            label: Sass
+            required: false
+          - widget: hidden
+            name: plugins
+            label: Plugins
+            required: false
+          - widget: hidden
+            name: exclude
+            label: Exclude
+            required: false
+            hint: Exclude directories and/or files from the conversion.
+  - name: header
+    label: Header Configuration
+    files:
+      - name: header
+        label: Header Configuration
+        file: _data/header.yml
+        fields:
+          - widget: string
+            name: title_url
+            label: Title URL
+            required: false
+            hint: The link used in the page title
+          - widget: markdown
+            name: subtitle
+            label: Header Subtitle
+            required: false
+            hint: The text displayed below the page title
+          - widget: list
+            name: actions
+            label: Header Actions
+            required: false
+            hint: The action buttons displayed in the page header
+            fields:
+              - widget: string
+                name: label
+                label: Button Label
+                required: false
+              - widget: string
+                name: icon
+                label: Button Icon
+                required: false
+                hint: Font Awesome Icon
+              - widget: string
+                name: url
+                label: Button URL
+                required: false
+              - widget: boolean
+                name: is_primary
+                label: Is Primary
+                required: false
+                default: false
+                hint: Gives the button a primary color scheme
+              - widget: boolean
+                name: is_scrolly
+                label: Is Scrolly
+                required: false
+                default: false
+                hint: >-
+                  adds a scroll animation (enable if button URL is set to a
+                  section ID)
+          - widget: object
+            name: img
+            label: Header Image
+            required: false
+            fields:
+              - widget: image
+                name: path
+                label: Image
+                required: false
+              - widget: boolean
+                name: phone_border
+                label: Header Image Phone Border
+                required: false
+                default: false
+                hint: Puts a phone border around the header image
+  - name: footer
+    label: Footer Configuration
+    files:
+      - name: footer
+        label: Footer Configuration
+        file: _data/footer.yml
+        fields:
+          - widget: list
+            name: social_icons
+            label: Social Media Icons
+            required: false
+            fields:
+              - widget: string
+                name: title
+                label: Icon Title
+                required: true
+              - widget: string
+                name: icon
+                label: Icon
+                required: false
+                hint: Font Awesome Icon
+              - widget: string
+                name: url
+                label: Icon URL
+                required: false
+          - widget: string
+            name: copyright
+            label: Footer Copyright
+            required: false
+            hint: The copyright text displayed in the page footer.
+          - widget: list
+            name: links
+            label: Links
+            required: false
+            hint: A list of links displayed in the footer.
+            fields:
+              - widget: string
+                name: text
+                label: Link text
+                required: false
+              - widget: string
+                name: url
+                label: URL
+                required: false
+              - widget: boolean
+                name: new_window
+                label: Open in new window
+                required: false
+                default: true
+  - name: home
+    label: Home
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - widget: string
+            name: title
+            label: Page Title
+            required: false
+          - widget: list
+            name: sections
+            label: Sections
+            required: false
+            hint: Home sections
+            types:
+              - name: icons
+                widget: object
+                label: Icons Section
+                fields:
+                  - widget: string
+                    name: title
+                    label: Title
+                    required: true
+                    default: Icons Section
+                    hint: >-
+                      The title displayed at the top of the section (Also used
+                      by the CMS, even if no title is displayed in the section)
+                  - widget: string
+                    name: section_id
+                    label: Section Id
+                    required: true
+                    default: one
+                  - widget: hidden
+                    name: component
+                    label: Component
+                    required: true
+                    default: icons.html
+                  - widget: select
+                    name: background_style
+                    label: Background Style
+                    required: true
+                    hint: The color style for the background
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                  - widget: list
+                    name: icons
+                    label: Icons
+                    required: false
+                    hint: Icons displayed at the bottom of the section
+                    fields:
+                      - widget: string
+                        name: title
+                        label: Icon Title
+                        required: false
+                      - widget: string
+                        name: icon
+                        label: Icon
+                        required: false
+                        hint: Font Awesome Icon
+                  - widget: hidden
+                    name: type
+                    label: Reference Type Name
+                    required: true
+                    hint: >-
+                      Name of the Stackbit object model, used by fields of type
+                      reference
+                    default: icons
+              - name: spotlights
+                widget: object
+                label: Spotlights Section
+                fields:
+                  - widget: string
+                    name: title
+                    label: Title
+                    required: true
+                    default: Spotlights Section
+                    hint: >-
+                      The title displayed at the top of the section (Also used
+                      by the CMS, even if no title is displayed in the section)
+                  - widget: string
+                    name: section_id
+                    label: Section Id
+                    required: true
+                    default: two
+                  - widget: hidden
+                    name: component
+                    label: Component
+                    required: true
+                    default: spotlights.html
+                  - widget: list
+                    name: spotlights
+                    label: Spotlight Sections
+                    required: false
+                    fields:
+                      - widget: string
+                        name: title
+                        label: Spotlight Title
+                        required: true
+                      - widget: markdown
+                        name: text
+                        label: Spotlight Text
+                        required: false
+                        hint: The text displayed below the spotlight title
+                      - widget: image
+                        name: image
+                        label: Spotlight Image
+                        required: false
+                  - widget: list
+                    name: icons
+                    label: Icons
+                    required: false
+                    hint: Icons displayed at the bottom of the section
+                    fields:
+                      - widget: string
+                        name: title
+                        label: Icon Title
+                        required: false
+                      - widget: string
+                        name: icon
+                        label: Icon
+                        required: false
+                        hint: Font Awesome Icon
+                  - widget: hidden
+                    name: type
+                    label: Reference Type Name
+                    required: true
+                    hint: >-
+                      Name of the Stackbit object model, used by fields of type
+                      reference
+                    default: spotlights
+              - name: cta
+                widget: object
+                label: CTA Section
+                fields:
+                  - widget: string
+                    name: title
+                    label: Title
+                    required: true
+                    default: CTA Section
+                    hint: >-
+                      The title displayed at the top of the section (Also used
+                      by the CMS, even if no title is displayed in the section)
+                  - widget: string
+                    name: section_id
+                    label: Section Id
+                    required: true
+                    default: three
+                  - widget: hidden
+                    name: component
+                    label: Component
+                    required: true
+                    default: cta.html
+                  - widget: markdown
+                    name: subtitle
+                    label: Section Subtitle
+                    required: false
+                    hint: The text displayed below the section title
+                  - widget: select
+                    name: background_style
+                    label: Background Style
+                    required: true
+                    hint: The color style for the background
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                  - widget: list
+                    name: actions
+                    label: CTA Action Buttons
+                    required: false
+                    fields:
+                      - widget: string
+                        name: label
+                        label: Button Label
+                        required: false
+                      - widget: string
+                        name: icon
+                        label: Button Icon
+                        required: false
+                        hint: Font Awesome Icon
+                      - widget: string
+                        name: url
+                        label: Button URL
+                        required: false
+                      - widget: boolean
+                        name: is_primary
+                        label: Is Primary
+                        required: false
+                        default: false
+                        hint: Gives the button a primary color scheme
+                      - widget: boolean
+                        name: is_scrolly
+                        label: Is Scrolly
+                        required: false
+                        default: false
+                        hint: >-
+                          adds a scroll animation (enable if button URL is set
+                          to a section ID)
+                  - widget: hidden
+                    name: type
+                    label: Reference Type Name
+                    required: true
+                    hint: >-
+                      Name of the Stackbit object model, used by fields of type
+                      reference
+                    default: cta
+          - widget: hidden
+            name: layout
+            label: Layout
+            required: true
+            default: home
+  - name: elements
+    label: Elements
+    files:
+      - name: elements
+        label: Elements
+        file: elements.md
+        fields:
+          - widget: string
+            name: title
+            label: Page Title
+            required: true
+          - widget: hidden
+            name: layout
+            label: Layout
+            required: true
+            default: elements

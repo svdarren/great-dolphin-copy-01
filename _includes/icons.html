@@ -1,0 +1,11 @@
+<!-- One -->
+<section id="{{ include.section.section_id }}" class="wrapper {{ include.section.background_style }} special">
+    <header class="major">
+        <h2>{{ include.section.title | newline_to_br }}</h2>
+    </header>
+    <ul class="icons major">
+        {% for item in include.section.icons %}
+            <li><span class="icon {{ item.icon }}"><span class="label">{{ item.title }}</span></span></li>
+        {% endfor %}
+    </ul>
+</section>

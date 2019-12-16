@@ -1,0 +1,30 @@
+<!-- Two -->
+<section id="{{ include.section.section_id }}" class="wrapper">
+    <div class="inner alt">
+        {% assign spotlights_is_not_empty = include.section.spotlights | is_not_empty %}
+        {% if spotlights_is_not_empty %}
+            {% for spotlight in include.section.spotlights %}
+                <section class="spotlight">
+                    {% assign image_is_not_empty = spotlight.image | is_not_empty %}
+                    {% if image_is_not_empty %}
+                        <div class="image"><img src="{{ spotlight.image | relative_url }}" alt="" /></div>
+                    {% endif %}
+                    <div class="content">
+                        <h3>{{ spotlight.title }}</h3>
+                        {{ spotlight.text | markdownify }}
+                    </div>
+                </section>
+            {% endfor %}
+        {% endif %}
+        {% assign icons_is_not_empty = include.section.icons | is_not_empty %}
+        {% if icons_is_not_empty %}
+            <section class="special">
+                <ul class="icons labeled">
+                    {% for item in include.section.icons %}
+                        <li><span class="icon {{ item.icon }}"><span class="label">{{ item.title }}</span></span></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    </div>
+</section>

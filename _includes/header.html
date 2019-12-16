@@ -1,0 +1,19 @@
+<!-- Header -->
+<header id="header">
+    <div class="content">
+        <h1><a href="{% assign expr_1 = site.data.header.title_url | starts_with: '#' %}{% if expr_1 %}{{ site.data.header.title_url }}{% else %}{{ site.data.header.title_url | relative_url }}{% endif %}">{{ site.title }}</a></h1>
+        {{ site.data.header.subtitle | markdownify }}
+        {% assign actions_is_not_empty = site.data.header.actions | is_not_empty %}
+        {% if actions_is_not_empty %}
+            <ul class="actions">
+                {% for action in site.data.header.actions %}
+                    <li><a href="{% assign expr_2 = action.url | starts_with: '#' %}{% if expr_2 %}{{ action.url }}{% else %}{{ action.url | relative_url }}{% endif %}" class="button{% assign is_primary_is_not_empty = action.is_primary | is_not_empty %}{% if is_primary_is_not_empty %} primary{% endif %}{% assign icon_is_not_empty = action.icon | is_not_empty %}{% if icon_is_not_empty %} icon {{ action.icon }}{% endif %}{% assign is_scrolly_is_not_empty = action.is_scrolly | is_not_empty %}{% if is_scrolly_is_not_empty %} scrolly{% endif %}">{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    {% assign img_is_not_empty = site.data.header.img | is_not_empty %}
+    {% if img_is_not_empty %}
+        <div class="image{% assign phone_border_is_not_empty = site.data.header.img.phone_border | is_not_empty %}{% if phone_border_is_not_empty %} phone{% endif %}"><div class="inner"><img src="{{ site.data.header.img.path | relative_url }}" alt="" /></div></div>
+    {% endif %}
+</header>
