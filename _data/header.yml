@@ -3,16 +3,16 @@ subtitle: |-
   Nibh sed aliquam, cursus arcu aliquet  
   natoque rhoncus ut non in Aliquet
 actions:
-  - label: Download
-    icon: fa-download
-    url: /elements
+  - icon: fa-download
     is_primary: true
     is_scrolly: false
-  - label: Learn More
-    icon: fa-chevron-down
-    url: '#one'
+    label: Download
+    url: /elements
+  - icon: fa-chevron-down
     is_primary: false
     is_scrolly: true
+    label: Learn More
+    url: '#one'
 img:
-  path: images/screen.jpg
-  phone_border: true
+  path: /images/45158359_1121638101344989_4371719177623306240_o.jpg
+  phone_border: false
