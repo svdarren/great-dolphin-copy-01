@@ -5,7 +5,7 @@ actions:
     is_primary: true
     is_scrolly: true
     label: Learn More
-    url: '#one'
+    url: '#events'
 img:
   path: /images/45158359_1121638101344989_4371719177623306240_o.jpg
   phone_border: true
