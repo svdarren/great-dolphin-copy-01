@@ -42,6 +42,12 @@ sections:
           You can leave the pick-up lines and elevator speeches at home.
           Refreshing, isn't it?
         title: Break the Bubble @ BlackStack Brewing
+        actions:
+          - icon: fa-download
+            is_primary: true
+            is_scrolly: false
+            label: Download
+            url: '#'
       - image: /images/179b2849f54c3dc1ddb8a4bed2ee2526_f146.jpg
         text: Break the Bubble @ Utepils Brewing Co
         title: Break the Bubble @ Utepils Brewing Co
